@@ -21,19 +21,19 @@ The goal is not state‑of‑the‑art accuracy, but **transparency** – provid
 - A total of **58 rules** were generated on the training set; the top rules consistently involve high‑energy or high‑frequency features.
 
 ## Repository Structure
+```
 .
 ├── src/
-│ ├── extract_features.py # Converts .wav files to acoustic features
-│ └── discretize_and_mine.py # Discretises features, runs Apriori, cross‑validation
+│   ├── extract_features.py        # Converts .wav files to acoustic features
+│   └── discretize_and_mine.py     # Discretises features, runs Apriori, cross‑validation
 ├── results/
-│ ├── cross_validated_rules.csv # Top rules with train/test metrics
-│ ├── lombard_rules_training.csv # All rules from training set
-│ └── train_test_confidence_comparison.png
+│   ├── cross_validated_rules.csv  # Top rules with train/test metrics
+│   ├── lombard_rules_training.csv # All rules from training set
+│   └── train_test_confidence_comparison.png
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-
-text
+```
 
 ## Dataset
 
