@@ -45,7 +45,7 @@ We use the **AVLombard corpus** (Alghamdi et al., JASA 2018):
 ## How to Reproduce
 
 1. **Clone the repository**  
-   `git clone https://github.com/yourusername/AVLombard-Interpretable-Rules.git`
+   `git clone https://github.com/SepidehNorouziMotlagh/AVLombard-Interpretable-Rules.git`
 
 2. **Install dependencies**  
    `pip install -r requirements.txt`
