@@ -1,15 +1,16 @@
-#!/usr/bin/env python3
 """
-discretize_and_mine.py - Full dataset association rule mining with speaker-wise cross-validation
+discretize_and_mine.py - Association rule mining with a
+single speaker-disjoint train/test evaluation.
 
 Steps:
-1. Load full audio_features_raw.csv (using project‑root path)
-2. Split speakers into training and test sets (e.g., 40 train, 14 test)
-3. Discretize numeric features into low/medium/high using training set quantiles
-4. Apply same discretization to test set
-5. Run Apriori on training set to generate rules
-6. Evaluate the rules on test set (confidence, lift, support)
-7. Save results and plots
+1. Load the extracted acoustic feature CSV.
+2. Split speakers into 40 training and 14 held-out test speakers.
+3. Discretize features using training-set quantiles.
+4. Apply the same thresholds to the test set.
+5. Mine association rules on the training set.
+6. Evaluate selected rule antecedents against the Lombard label
+   on the held-out test set.
+7. Save evaluation results and plots.
 """
 
 import pandas as pd
