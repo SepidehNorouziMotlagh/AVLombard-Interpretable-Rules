@@ -228,8 +228,14 @@ for idx, rule in lombard_rules.head(20).iterrows():
         })
 
 test_results_df = pd.DataFrame(test_results)
-test_results_df.to_csv(results_dir / "cross_validated_rules.csv", index=False)
-print(f"\nSaved cross-validated rules to {results_dir / 'cross_validated_rules.csv'}")
+test_results_df.to_csv(
+    results_dir / "heldout_speaker_rule_evaluation.csv",
+    index=False
+)
+print(
+    f"\nSaved held-out evaluation results to "
+    f"{results_dir / 'heldout_speaker_rule_evaluation.csv'}"
+)
 print("\nTop 5 rules with test confidence:")
 print(test_results_df[['antecedents', 'confidence_train', 'confidence_test', 'lift_test']].head(5))
 
