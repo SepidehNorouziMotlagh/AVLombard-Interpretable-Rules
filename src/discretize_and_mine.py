@@ -165,7 +165,11 @@ train_rules = association_rules(frequent_itemsets, metric="confidence", min_thre
 print(f"Generated {len(train_rules)} association rules on training set.")
 
 # Filter rules where 'Lombard' is in the consequent
-lombard_rules = train_rules[train_rules['consequents'].apply(lambda x: 'Lombard' in x)]
+lombard_rules = train_rules[
+    train_rules['consequents'].apply(
+        lambda x: x == frozenset({'Lombard'})
+    )
+]
 lombard_rules = lombard_rules.sort_values('lift', ascending=False)
 print(f"Rules with Lombard in consequent: {len(lombard_rules)}")
 
