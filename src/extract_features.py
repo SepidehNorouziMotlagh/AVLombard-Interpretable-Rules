@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 extract_features.py - Extract audio features from all AVLombard .wav files
 
@@ -28,7 +27,8 @@ def extract_audio_features(file_path):
         # Load audio (resample to 16 kHz for consistency)
         y, sr = librosa.load(file_path, sr=16000)
 
-        # 13 MFCCs (coefficients 1-13)
+        # Compute 13 MFCC coefficients; the output below stores
+        # the first 12 coefficients (indices 0-11).
         mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
         mfccs_mean = np.mean(mfccs, axis=1)
 
@@ -62,6 +62,7 @@ def extract_audio_features(file_path):
         chroma_mean = np.mean(chroma, axis=1)
 
         # Build feature dictionary
+        # mfcc1 maps to Librosa coefficient index 0 (MFCC0).
         features = {
             # MFCCs
             'mfcc1' : mfccs_mean[0], 'mfcc2' : mfccs_mean[1], 'mfcc3' : mfccs_mean[2],
