@@ -6,3 +6,4 @@ scikit-learn
 librosa
 mlxtend
 jupyter
+tqdm
